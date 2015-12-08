@@ -1,0 +1,5 @@
+<h1>Dodaj pudełko do bazy
+<h2>Podaj kod pudełka
+<form method=post action=@{AddBox3R gameId ownerId}#form enctype=#{formEnctype}>
+    ^{formWidget}
+

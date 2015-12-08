@@ -1,0 +1,23 @@
+$maybe insertResult <- bFormRun
+  $maybe result <- insertResult
+    <p .badResult>Gry nie udało się wypożyczyć.
+      <br>
+      #{result}
+  $nothing
+    <p .goodResult>Gra została wypożyczona.
+
+$maybe insertResult <- rFormRun
+  $maybe result <- insertResult
+    <p .badResult>Gry nie udało się zwrócić.
+      <br>
+      #{result}
+  $nothing
+    <p .goodResult>Gra została zwrócona.
+
+<h2>Wypożycz grę
+<form method=post action=@{HomeActionR Borrow} enctype=#{bFormEnctype}>
+  ^{bFormWidget}
+
+<h2>Zwróć grę
+<form method=post action=@{HomeActionR Return} enctype=#{rFormEnctype}>
+  ^{rFormWidget}

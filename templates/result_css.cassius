@@ -1,0 +1,15 @@
+@border: 2px solid
+@padding: 15px
+@radius: 15px
+
+p.goodResult
+  background: #88ee88
+  border: #{border}
+  padding: #{padding}
+  border-radius: #{radius}
+  
+p.badResult
+  background: #ee8888
+  border: #{border}
+  padding: #{padding}
+  border-radius: #{radius}

@@ -1,0 +1,9 @@
+<h1>Dodaj pudełko do bazy
+<h2>Wybierz właściciela
+<table>
+  <tr>
+    <th> Nazwa
+  $forall owner <- allOwners
+    <tr .alt#{show $ fst owner}>
+      <td>
+        <a href=@{AddBox3R gameId (fst $ snd owner)}> #{ownerName $ snd $ snd owner}

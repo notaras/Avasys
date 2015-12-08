@@ -1,0 +1,43 @@
+User
+    ident Text
+    UniqueUser ident
+    deriving Typeable
+
+Email
+    email Text
+    user UserId Maybe
+    verkey Text Maybe
+    UniqueEmail email
+
+Game
+    name Text
+    time Int
+    minPlayers Int
+    optimumPlayers Int
+    maxPlayers Int
+    UniqueGame name
+    deriving Typeable Show
+
+Owner
+    name Text
+    telephone Text Maybe
+    adress Textarea
+    UniqueOwner name
+    deriving Typeable Show
+
+Box
+    idCode Text
+    owner OwnerId
+    game GameId
+    state BoxState
+    UniqueBox idCode
+    deriving Typeable Show
+
+Borrowing
+    box BoxId
+    user Text
+    start UTCTime
+    end UTCTime Maybe
+    deriving Typeable Show
+    
+-- By default this file is used in Model.hs (which is imported by Foundation.hs)

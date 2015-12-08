@@ -1,0 +1,27 @@
+<h2> Aktywne wypożyczenia
+
+<table>
+  <tr>
+    <th> Kod pudełka
+    <th> Nazwa gry
+    <th> Kod uczestnika
+    <th> Początek wypożyczenia
+    <th> Koniec wypożyczenia
+    $maybe _ <- authId
+      <th> Zakończ
+  $forall borrowing <- activeBorrowingsCodesGames
+    <tr .alt#{show $ fst borrowing}>
+      <td>#{boxIdCode $ mid3 $ snd borrowing}
+      <td>#{borrowingUser $ snd $ fst3 $ snd borrowing}      
+      <td>#{gameName $ lst3 $ snd borrowing}
+      <td>#{fst $ splitAt 19 $ show $ borrowingStart $ snd $ fst3 $ snd borrowing}
+      <td>
+        $maybe end <- borrowingEnd $ snd $ fst3 $ snd borrowing
+          #{fst $ splitAt 19 $ show $ end}
+      $maybe _ <- authId
+        <td>
+          $maybe _ <- borrowingEnd $ snd $ fst3 $ snd borrowing
+          $nothing
+            <form method="POST" action=@{BorrowingEndR $ fst $ fst3 $ snd borrowing}>
+              <button class="btn  btn-default" type="submit"> Zwróć
+

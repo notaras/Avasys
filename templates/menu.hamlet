@@ -1,0 +1,18 @@
+$doctype 5
+<h2> System obsługi gamesroomu Avasys.
+$maybe _ <- authId
+  <p .adminInfo>
+    <b> Jesteś w trybie administratora
+<a .menu href=@{HomeR}>Strona główna
+<a .menu href=@{BorrowingR}>Lista wypożyczeń
+<a .menu href=@{ShowGameDefaultR}>Lista tytułów
+<a .menu href=@{ShowBoxDefaultR}>Lista pudełek
+
+$maybe _ <- authId
+  <a .menu href=@{ShowOwnerR}>Lista właścicieli
+  <a .menu href=@{AdminR}>Panel administracyjny
+  <a .menuAdmin href=@{AuthR LogoutR}>Wyloguj
+$nothing
+  <a .menuAdmin href=@{AuthR LoginR}>Zaloguj
+<hr>
+

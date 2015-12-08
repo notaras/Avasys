@@ -1,0 +1,5 @@
+<h2 .adminPanel> Opcje administracyjne
+<a .adminPanel href=@{AddGameR}>Dodaj grę
+<a .adminPanel href=@{AddOwnerR}>Dodaj właściciela
+<a .adminPanel href=@{AddBox1R}>Dodaj pudełko
+<hr>

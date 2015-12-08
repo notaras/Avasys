@@ -1,0 +1,32 @@
+@border: 2px solid
+@padding: 5px
+
+table
+  font-family: serif
+  font-size: 1.1em
+
+
+th
+  border: #{border}
+  padding: #{padding}
+  background: #ddddff
+  
+td
+  border: #{border}
+  padding: #{padding}
+
+td a
+  font-weight: bold
+
+tr.alt0
+  background: #eeeeff
+
+tr.alt1
+  background: #fefeff
+
+tr.alt0:hover
+  background: #bebeff
+
+tr.alt1:hover
+  background: #bebeff
+

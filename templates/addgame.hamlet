@@ -1,0 +1,10 @@
+$maybe insertResult <- formRun
+  $maybe result <- insertResult
+    <p .goodResult>Gra została dodana do bazy.
+  $nothing
+    <p .badResult>Gry nie udało się dodać.
+
+<h1>Dodaj grę
+<form method=post action=@{AddGameR}#form enctype=#{formEnctype}>
+    ^{formWidget}
+

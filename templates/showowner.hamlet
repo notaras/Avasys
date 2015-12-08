@@ -1,0 +1,29 @@
+<h1>Wszystkie gry w bazie
+
+<table>
+  <tr>
+    <th> Właściciel
+    <th> Telefon
+    <th> Adres
+    $maybe _ <- authId
+      <th> Gry dostępne
+      <th> Gry niedostępne
+  $forall owner <- allOwners
+    <tr .alt#{show $ fst owner}>
+      <td>
+        <a href=@{ShowBoxR Nothing (Just $ fst $ snd owner) Nothing}> #{ownerName $ snd $ snd owner}
+      <td>#{fromMaybe "" $ ownerTelephone $ snd $ snd owner}
+      <td>#{ownerAdress $ snd $ snd owner}
+      $maybe _ <- authId
+        <td>
+          <form method="POST" action=@{ShowBoxR Nothing (Just $ fst $ snd owner) Nothing}>
+            <input type="hidden" name="ownerId" value="#{show $ fst $ snd owner}">
+            <input type="hidden" name="boxState" value="#{show $ Available}">
+            <button class="btn  btn-default" type="submit"> Gry dostępne
+        <td>
+          <form method="POST" action=@{ShowBoxR Nothing (Just $ fst $ snd owner) Nothing}>
+            <input type="hidden" name="ownerId" value="#{show $ fst $ snd owner}">
+            <input type="hidden" name="boxState" value="#{show $ Unavailable}">
+            <button class="btn  btn-default" type="submit"> Gry niedostępne
+      
+

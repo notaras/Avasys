@@ -1,0 +1,11 @@
+$maybe insertResult <- formRun
+  $maybe result <- insertResult
+    <p .goodResult>Gra została dodana do bazy.
+  $nothing
+    <p .badResult>Gry nie udało się dodać.
+
+<h1>Dodaj właściciela
+<div .container-fluid>
+  <form method=post action=@{AddOwnerR}#form enctype=#{formEnctype}>
+    ^{formWidget}
+

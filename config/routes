@@ -1,0 +1,28 @@
+/static StaticR Static appStatic
+/auth   AuthR   Auth   getAuth
+
+
+
+/favicon.ico FaviconR GET
+/robots.txt RobotsR GET
+
+/ HomeR GET
+/action/#BorrowingAction HomeActionR POST
+
+/borrowing/ BorrowingR GET
+/borrowing/#BorrowingId BorrowingEndR  POST
+
+/game/add/addGame/ AddGameR GET POST
+/game/#OrderType ShowGameR GET
+/game/ ShowGameDefaultR GET
+
+/owner/add/addOwner AddOwnerR GET POST
+/owner/ ShowOwnerR GET
+
+/box/#Maybe-GameId/#Maybe-OwnerId/#Maybe-BoxState ShowBoxR GET POST
+/box/ ShowBoxDefaultR GET
+/box-add/ AddBox1R GET
+/box-add/#GameId AddBox2R GET
+/box-add/#GameId/#OwnerId AddBox3R GET POST
+
+/admin/ AdminR GET

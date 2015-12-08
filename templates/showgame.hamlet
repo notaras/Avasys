@@ -1,0 +1,27 @@
+<h1>Wszystkie gry w bazie
+
+<table>
+  <tr>
+    <th> Nazwa gry
+      <a href=@{ShowGameR NameAsc}> ▲
+      <a href=@{ShowGameR NameDesc}> ▼
+    <th> Czas [min]
+      <a href=@{ShowGameR TimeAsc}> ▲
+      <a href=@{ShowGameR TimeDesc}> ▼
+    <th> Minimum graczy
+      <a href=@{ShowGameR MinPlayersAsc}> ▲
+      <a href=@{ShowGameR MinPlayersDesc}> ▼
+    <th> Optimum graczy
+      <a href=@{ShowGameR OptPlayersAsc}> ▲
+      <a href=@{ShowGameR OptPlayersDesc}> ▼
+    <th> Maksimum graczy
+      <a href=@{ShowGameR MaxPlayersAsc}> ▲
+      <a href=@{ShowGameR MaxPlayersDesc}> ▼
+  $forall game <- allGames
+    <tr .alt#{show $ fst game}>
+      <td>
+        <a href=@{ShowBoxR (Just $ fst $ snd game) Nothing Nothing}> #{gameName $ snd $ snd game}
+      <td>#{show $ gameTime $ snd $ snd game}
+      <td>#{show $ gameMinPlayers $ snd $ snd game}
+      <td>#{show $ gameOptimumPlayers $ snd $ snd game}
+      <td>#{show $ gameMaxPlayers $ snd $ snd game}

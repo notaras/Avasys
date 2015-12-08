@@ -1,0 +1,25 @@
+<h1>Wszystkie gry w bazie
+
+<table>
+  <tr>
+    <th> Kod pudełka
+    <th> Nazwa gry
+    <th> Właściciel
+    <th> Stan
+      <a href=@{ShowBoxR gameId ownerId (Just Available)} style="color:green"> ✔
+      <a href=@{ShowBoxR gameId ownerId (Just Borrowed)} style="color:yellow"> ⚠
+      <a href=@{ShowBoxR gameId ownerId (Just Unavailable)} style="color:red"> ✗
+    $maybe _ <- authId
+      <th> Zmień stan
+  $forall box <- allBoxes
+    <tr .alt#{show $ fst box}>
+      <td>#{boxIdCode $ snd $ fst3 $ snd box}
+      <td>#{gameName $ mid3 $ snd box}
+      <td>#{ownerName $ lst3 $ snd box}
+      <td>#{showState $ boxState $ snd $ fst3 $ snd box}
+      $maybe _ <- authId
+        <td>
+          <form method="POST" action=@{ShowBoxR gameId ownerId state}>
+            <input type="hidden" name="boxId" value="#{show $ fst $ fst3 $ snd box}">
+            <input type="hidden" name="boxState" value="#{otherState $ boxState $ snd $ fst3 $ snd box}">
+            <button class="btn  btn-default" type="submit"> Zmień stan

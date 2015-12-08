@@ -1,0 +1,21 @@
+@minheight: 40px
+@padding: 20px
+
+@radius: 5px
+
+a.adminPanel
+  background-color: #ccccee
+  min-height: #{minheight}
+  padding: 20px
+  margin-top: 40px
+  text-align: center
+  text-transform: capitalize
+  border-radius: #{radius}
+  display: inline
+
+a.adminPanel:hover
+  background-color: #aaaacc
+
+h2.adminPanel
+  display:block
+  margin-bottom: 40px
